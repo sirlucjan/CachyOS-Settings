@@ -1,11 +1,14 @@
 #!/bin/bash
 
-echo -e "Kernel version:\n"
-cat /proc/version && uname -a 
+echo -e "Check kernel version:\n"
+cat /proc/version && uname -a
 echo -e "\n"
-echo -e "CPU:\n"
+echo -e "Check x86_64 support:\n"
+/lib/ld-linux-x86-64.so.2 --help | grep supported
+echo -e "\n"
+echo -e "Check CPU config:\n"
 zgrep -i CONFIG_GENERIC_CPU /proc/config.gz | grep -wE '\w{18,19}'
 echo -e "\n"
-echo -e "Schedulers:\n"
+echo -e "Check available schedulers:\n"
 cat /sys/block/sda/queue/scheduler
 journalctl -k | grep -i scheduler
