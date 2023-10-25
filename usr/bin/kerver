@@ -11,7 +11,9 @@ zgrep -i CONFIG_GENERIC_CPU /proc/config.gz | grep -wE '\w{18,19}'
 echo -e "\n"
 echo -e "Current disk schedulers:\n"
 for disk in /sys/block/*/; do
-    echo "`basename "$disk"`: `cat $disk/queue/scheduler`"
+    if [[ -f $disk/queue/scheduler ]]; then
+        echo "`basename "$disk"`: `cat $disk/queue/scheduler`"
+    fi
 done
 echo -e "\nCheck available schedulers:\n"
 journalctl -k | grep -i scheduler
