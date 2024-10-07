@@ -7,7 +7,8 @@ echo -e "Check x86_64 support:\n"
 /lib64/ld-linux-x86-64.so.2 --help | grep "(supported, searched)"
 echo -e "\n"
 echo -e "Check CPU config:\n"
-zgrep -i CONFIG_GENERIC_CPU /proc/config.gz | grep -wE '\w{18,19}' && zgrep -i CONFIG_X86_64_VERSION  /proc/config.gz
+Check CPU config:
+$(zgrep -iE 'CONFIG_(GENERIC_CPU(=| is)|X86_64_VERSION|MZEN|MBULLDOZER|MPILEDRIVER|MSTREAMROLLER|MEXCAVATOR|MBOBCAT|MJAGUAR|MK10|MK8SSE3|MATOM|MGOLDMONTPLUS|MSKYLAKE2|MIVYBRIDGE|MICELAKE|MNATIVE_INTEL|MNATIVE_AMD)' /proc/config.gz)
 echo -e "\n"
 echo -e "Current disk schedulers:\n"
 for disk in /sys/block/*/; do
