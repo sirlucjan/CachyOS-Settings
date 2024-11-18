@@ -15,6 +15,9 @@ Check CPU config:
 
 $(zgrep -iE 'CONFIG_(GENERIC_CPU(=| is)|X86_64_VERSION|MZEN|MNATIVE_AMD)' /proc/config.gz)
 
+Check some configuration variables:
+
+$(zgrep -iE 'CONFIG_(SCHED_CLASS_EXT|AUTOFDO_CLANG)' /proc/config.gz)
 
 Current disk schedulers:
 
