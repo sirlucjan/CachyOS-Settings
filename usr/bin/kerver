@@ -29,8 +29,4 @@ done)
 Check available schedulers:
 
 $(journalctl -k | grep -i scheduler)
-
-Check available improvements:
-
-$(journalctl -k | grep -i le9uo)
 EOF
