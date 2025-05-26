@@ -13,7 +13,7 @@ $(/lib64/ld-linux-x86-64.so.2 --help | grep "(supported, searched)")
 
 Check CPU config:
 
-$(zgrep -iE 'CONFIG_(GENERIC_CPU(=| is)|X86_64_VERSION|MZEN|MNATIVE_AMD)' /proc/config.gz)
+$(zgrep -iE 'CONFIG_(GENERIC_CPU(=| is)|X86_64_VERSION|MZEN4|X86_NATIVE_CPU)' /proc/config.gz)
 
 Check some configuration variables:
 
