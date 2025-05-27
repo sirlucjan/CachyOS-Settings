@@ -17,7 +17,7 @@ $(zgrep -iE 'CONFIG_(GENERIC_CPU(=| is)|X86_64_VERSION|MZEN4|X86_NATIVE_CPU)' /p
 
 Check some configuration variables:
 
-$(zgrep -iE 'CONFIG_(SCHED_CLASS_EXT|AUTOFDO_CLANG|PROPELLER_CLANG)' /proc/config.gz)
+$(zgrep -iE 'CONFIG_(SCHED_CLASS_EXT|AUTOFDO_CLANG|PROPELLER_CLANG|LTO_CLANG)' /proc/config.gz)
 
 Current disk schedulers:
 
