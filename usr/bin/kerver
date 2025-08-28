@@ -60,7 +60,7 @@ do [ -f "$disk/queue/scheduler" ] \
 done)
 
 Check available schedulers:
-
+$(journalctl -k | grep -i scheduler)
 EOF
 
 scx_sched
