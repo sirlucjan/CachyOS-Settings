@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-function scx_sched {
+function fetch_scheds {
+    echo "$(journalctl -k | grep -i scheduler | grep -Pv '^(?=.*sched_ext: BPF scheduler)(?=.*enabled)')"
+
     ENABLED_SCHEDULER_LINE=$(journalctl -k | grep -i "sched_ext: BPF scheduler" | tail -n1 | grep "enabled")
 
     if [ -z "$ENABLED_SCHEDULER_LINE" ]; then
@@ -60,7 +62,5 @@ do [ -f "$disk/queue/scheduler" ] \
 done)
 
 Check available schedulers:
-$(journalctl -k | grep -i scheduler)
+$(fetch_scheds)
 EOF
-
-scx_sched
