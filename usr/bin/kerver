@@ -62,5 +62,6 @@ do [ -f "$disk/queue/scheduler" ] \
 done)
 
 Check available schedulers:
+
 $(fetch_scheds)
 EOF
